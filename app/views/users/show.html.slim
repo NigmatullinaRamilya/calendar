@@ -56,4 +56,8 @@
             td.text-right
               = @user.city
 .text-center
+  br
+  - if @user.id == current_user.id
+    = link_to 'Edit profile', edit_user_registration_path(@user) , class: "button"
+    |  
   = link_to 'Back', :back , class: "hollow button"

@@ -14,16 +14,16 @@
           h3
             .text-center
               = link_to meeting.name, meeting_path(meeting)
-          table.white-borders
+          table.white-borders.text-left
             tr.white-borders
               td.width-100
                 | Start time:
-              td.text-left = meeting.start_time.strftime("%d.%m.%Y")
+              td = meeting.start_time.strftime("%d.%m.%Y")
             - if meeting.end_time != nil
               tr.white-borders
                 td.width-100
                   | End time:
-                td.text-left = meeting.end_time.strftime("%d.%m.%Y")
+                td = meeting.end_time.strftime("%d.%m.%Y")
             - if meeting.place != '' && meeting.place != nil
               tr.white-borders
                 td.width-100 valign="top"
@@ -33,11 +33,13 @@
               tr.white-borders
                 td.width-100 valign="top"
                   | Description:
-                td.text-left = truncate(meeting.description, :length => 90, :separator => ' ')
+                td = truncate(meeting.description, :length => 90, :separator => ' ')
             tr.white-borders
               td.width-100 valign="top"
                 | Autor:
-              td.text-left = meeting.user.email
+              td
+                dfn
+                  = link_to meeting.user.email, user_show_path(meeting.user)
         - if meetings.empty?
           h5.text-center.font-weight-200
             | No events

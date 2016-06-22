@@ -1,9 +1,8 @@
-p.text-center
-  div id="notice"
-    = notice
-
 .row
   .small-6.small-offset-3.columns
+    div id="notice"
+      = notice
+
     h2
       .text-center
         = @meeting.name
@@ -30,7 +29,9 @@ p.text-center
       tr
         td.width-100 valign="top"
           | Autor:
-        td = @meeting.user.email
+        td
+          dfn
+            = link_to @meeting.user.email, user_show_path(@meeting.user)
     br
     .text-center
       = link_to 'Back', :back , class: "hollow button"

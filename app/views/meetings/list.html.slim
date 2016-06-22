@@ -1,6 +1,9 @@
 == yield
 .row
   .small-8.small-offset-2.columns
+    div id="notice"
+      = notice
+
     - for meeting in @meetings
       h3
         .text-center
@@ -28,7 +31,9 @@
           tr
             td.width-100 valign="top"
               | Autor:
-            td = meeting.user.email
+            td
+              dfn
+                = link_to meeting.user.email, user_show_path(meeting.user)
       hr
     = paginate @meetings
     - if @meetings.empty?

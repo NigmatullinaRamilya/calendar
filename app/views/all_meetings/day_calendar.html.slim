@@ -37,7 +37,9 @@
             tr.white-borders
               td.width-100 valign="top"
                 | Autor:
-              td = meeting.user.email
+              td
+                dfn
+                  = link_to meeting.user.email, user_show_path(meeting.user)
         - if meetings.empty?
           h5.text-center.font-weight-200
             | No events

@@ -33,7 +33,8 @@
             li.nav-bar-3
               h6 = link_to "Sign out", destroy_user_session_path, method: :delete
     - else
-      li.nav-bar-1
-        h6 = link_to "Sign in", new_user_session_path
-      li.nav-bar-1
-        h6 = link_to "Sign up", new_user_registration_path
+      ul.dropdown.menu data-dropdown-menu=""
+        li.nav-bar-1
+          h6 = link_to "Sign in", new_user_session_path
+        li.nav-bar-1
+          h6 = link_to "Sign up", new_user_registration_path

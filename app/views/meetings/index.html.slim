@@ -7,8 +7,7 @@
 
     = month_calendar events: @meetings do |date, meetings|
       .text-right
-        = date.strftime("%d")
-      
+        = link_to date.strftime("%d"), day_calendar_meetings_path(start_date: date.strftime("%Y-%m-%d"))
       ul
         .text-black
           - if meetings != nil
@@ -19,6 +18,6 @@
     h4.text-center.font-weight-200
       | My events
     hr
-    h5.font-weight-200 = link_to "Month calendar", meetings_path
+    h5.font-weight-300 = link_to "Month calendar", meetings_path
     h5.font-weight-200 = link_to "Day calendar", day_calendar_meetings_path
     h5.font-weight-200 = link_to "List", list_meetings_path

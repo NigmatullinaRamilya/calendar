@@ -42,7 +42,7 @@
             td
               | Birthday
             td.text-right
-              = @user.birthday
+              = @user.birthday.strftime("%d.%m.%Y")
         - if @user.country?
           tr
             td

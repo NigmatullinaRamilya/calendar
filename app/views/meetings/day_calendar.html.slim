@@ -1,0 +1,17 @@
+== yield
+br
+.row
+  .small-8.small-offset-2.columns
+    div id="notice"
+      = notice
+
+    = calendar number_of_days: 1, events: @meetings do |date, meetings|
+      = date.strftime("%d")
+      
+      ul
+        .text-black
+          - if meetings != nil
+            - for meeting in meetings
+              - if meeting.user_id == current_user.id
+                li
+                  = link_to meeting.name, meeting_path(meeting)

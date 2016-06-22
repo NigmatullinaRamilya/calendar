@@ -1,0 +1,142 @@
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: proxima-nova, arial, helvetica, sans-serif;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: proxima-nova, arial, helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #555;
+
+  &:visited {
+    //color: #666;
+  }
+
+  &:hover {
+    color: #000;
+    //background-color: #c3c6c7;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+.nav-bar-1 {
+  padding-top: 15px;
+  padding-left: 15px
+}
+
+.nav-bar-2 {
+  padding-top: 10px;
+  padding-left: 15px
+}
+
+.nav-bar-3 {
+  padding-top: 5px;
+  padding-left: 15px
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+.text-center {
+  text-align: center
+}
+
+.text-right {
+  text-align: right
+}
+
+.white-borders {
+  border: 2px solid white
+}
+
+.width-100 {
+  width: 100px
+}
+
+.width-160 {
+  width: 160px
+}
+
+h2 {
+  font-weight: 200
+}
+
+h3 {
+  font-weight: 200
+}
+
+.font-weight-200 {
+  font-weight: 200
+}
+
+.font-weight-300 {
+  font-weight: 300
+}
+
+.center {
+  text-align: center
+}
+
+.text-black {
+  color: black
+}
+
+.padding-left-5 {
+  padding-left: 5px
+}
+
+.padding-right-20 {
+  padding-right: 20px
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: 200;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}

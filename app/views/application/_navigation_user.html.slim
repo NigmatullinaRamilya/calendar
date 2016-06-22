@@ -1,0 +1,39 @@
+.top-bar-right
+  .padding-right-20
+    - if user_signed_in?
+      ul.dropdown.menu data-dropdown-menu=""
+        li.nav-bar-1
+          h6
+            = link_to "Create event", new_meeting_path
+        li.nav-bar-1
+          h6 
+            | All events
+          ul.menu.vertical
+            li.nav-bar-2
+              h6 = link_to "Month calendar", all_meetings_path
+            li.nav-bar-3
+              h6 = link_to "Day calendar", day_calendar_all_meetings_path
+            li.nav-bar-3
+              h6 = link_to "List", list_all_meetings_path
+        li.nav-bar-1
+          h6
+            | My events
+          ul.menu.vertical
+            li.nav-bar-2
+              h6 = link_to "Month calendar", meetings_path
+            li.nav-bar-3
+              h6 = link_to "Day calendar", day_calendar_meetings_path
+            li.nav-bar-3
+              h6 = link_to "List", list_meetings_path
+        li.nav-bar-1
+          h6 = link_to current_user.email, user_show_path(current_user.id)
+          ul.menu.vertical
+            li.nav-bar-2
+              h6 = link_to "Edit profile", edit_user_registration_path
+            li.nav-bar-3
+              h6 = link_to "Sign out", destroy_user_session_path, method: :delete
+    - else
+      li.nav-bar-1
+        h6 = link_to "Sign in", new_user_session_path
+      li.nav-bar-1
+        h6 = link_to "Sign up", new_user_registration_path

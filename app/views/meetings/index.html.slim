@@ -1,0 +1,17 @@
+== yield
+br
+.row
+  .small-8.small-offset-2.columns
+    div id="notice"
+      = notice
+
+    = month_calendar events: @meetings do |date, meetings|
+      .text-right
+        = date.strftime("%d")
+      
+      ul
+        .text-black
+          - if meetings != nil
+            - for meeting in meetings
+              li
+                = link_to truncate(meeting.name, :length => 9, :separator => ' '), meeting_path(meeting)

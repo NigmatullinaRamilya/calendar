@@ -1,0 +1,21 @@
+== yield
+br
+.row
+  .small-8.small-offset-2.columns
+    div id="notice"
+      = notice
+
+    = month_calendar events: @meetings do |date, meetings|
+      .text-right
+        = date.strftime("%d")
+      
+      ul
+        .text-black
+          - if meetings != nil
+            - for meeting in meetings
+              - if meeting.user_id == current_user.id
+                li
+                  = link_to truncate(meeting.name, length: 9, :separator => ' '), {controller: "meetings", action: "show", id: meeting.id}
+              - else
+                li
+                  = link_to truncate(meeting.name, :length => 9, :separator => ' '), all_meeting_path(meeting)

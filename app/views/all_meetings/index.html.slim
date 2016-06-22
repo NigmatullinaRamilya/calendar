@@ -1,7 +1,8 @@
 == yield
-br
+
 .row
   .small-8.small-offset-2.columns
+    br
     div id="notice"
       = notice
 
@@ -19,3 +20,10 @@ br
               - else
                 li
                   = link_to truncate(meeting.name, :length => 9, :separator => ' '), all_meeting_path(meeting)
+  .small-2.columns
+    h4.text-center.font-weight-200
+      | All events
+    hr
+    h5.font-weight-200 = link_to "Month calendar", all_meetings_path
+    h5.font-weight-200 = link_to "Day calendar", day_calendar_all_meetings_path
+    h5.font-weight-200 = link_to "List", list_all_meetings_path

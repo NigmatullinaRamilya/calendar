@@ -6,8 +6,7 @@
           h6
             = link_to "Create event", new_meeting_path
         li.nav-bar-1
-          h6 
-            | All events
+          h6 = link_to "All events", all_meetings_path
           ul.menu.vertical
             li.nav-bar-2
               h6 = link_to "Month calendar", all_meetings_path
@@ -16,8 +15,7 @@
             li.nav-bar-3
               h6 = link_to "List", list_all_meetings_path
         li.nav-bar-1
-          h6
-            | My events
+          h6 = link_to "My events", meetings_path
           ul.menu.vertical
             li.nav-bar-2
               h6 = link_to "Month calendar", meetings_path

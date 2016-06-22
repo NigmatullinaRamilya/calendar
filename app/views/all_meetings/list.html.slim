@@ -36,3 +36,19 @@
             td = meeting.user.email
       hr
     = paginate @meetings
+    - if @meetings.empty?
+      h2.text-center
+        | All events
+      h3.text-center
+        br
+        | No event. You can  
+        dfn
+          = link_to "create", new_meeting_path
+        |  an event first
+  .small-2.columns
+    h4.text-center.font-weight-200
+      | All events
+    hr
+    h5.font-weight-200 = link_to "Month calendar", all_meetings_path
+    h5.font-weight-200 = link_to "Day calendar", day_calendar_all_meetings_path
+    h5.font-weight-200 = link_to "List", list_all_meetings_path

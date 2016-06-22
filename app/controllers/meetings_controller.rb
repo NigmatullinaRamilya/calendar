@@ -3,21 +3,18 @@ class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
   def index
-    @user = current_user
-    @meetings = @user.meetings
+    @meetings = current_user.meetings
   end
 
   def show
   end
 
   def day_calendar
-    @user = current_user
-    @meetings = @user.meetings
+    @meetings = current_user.meetings
   end
 
   def list
-    @user = current_user
-    @meetings = @user.meetings.page(params[:page]).per(5)
+    @meetings = current_user.meetings.order(start_time: :desc).page(params[:page]).per(5)
   end
 
   def new

@@ -72,6 +72,10 @@ div {
   text-align: right
 }
 
+.text-left {
+  text-align: left
+}
+
 .white-borders {
   border: 2px solid white
 }
@@ -139,4 +143,8 @@ h3 {
     font-size: 12px;
     list-style: square;
   }
+}
+
+.small-col { 
+width: 60px; 
 }

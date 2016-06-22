@@ -6,10 +6,11 @@
     <%= devise_error_messages! %>
 
     <% if current_user.avatar.url.present? %>
-      <%= f.label :remove_avatar do %>
-        <%= f.check_box :remove_avatar %>
-      <% end %>
+      Change avatar:
+    <% else %>
+      Add avatar
     <% end %>
+    <br>
     <%= f.file_field :avatar %>
     <%= f.hidden_field :avatar_cache %>
 

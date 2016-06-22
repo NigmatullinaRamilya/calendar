@@ -55,6 +55,16 @@
               | City
             td.text-right
               = @user.city
+        tr
+          td.width-160
+            | Events
+          td
+            hr
+        tr
+          td
+            | Events number:
+          td.text-right
+            = @user.meetings.size 
 .text-center
   br
   - if @user.id == current_user.id

@@ -9,7 +9,7 @@
     .small-5.columns
       br
       - if @user.avatar.url.present?
-        = image_tag(current_user.avatar.url)
+        = image_tag(@user.avatar.url)
       - else
        = image_tag("/images/avatar/default_avatar.png")
     .small-7.columns

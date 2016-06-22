@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :meetings, :all_meetings do
+  resources :meetings, :all_meetings, :user_meetings do
     collection do
       get 'day_calendar'
       get 'list'

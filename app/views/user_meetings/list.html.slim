@@ -1,0 +1,62 @@
+== yield
+.row
+  .small-8.small-offset-2.columns
+    br
+    div id="notice"
+      = notice
+
+    - for meeting in @meetings
+      - if meeting.user_id == current_user.id
+        h3
+          .text-center
+            = link_to meeting.name, {controller: "meetings", action: "show", id: meeting.id}
+      - else
+        h3
+          .text-center
+            = link_to meeting.name, all_meeting_path(meeting)
+      table.white-borders
+          tr
+            td.width-100
+              | Start time:
+            td = meeting.start_time.strftime("%d.%m.%Y")
+          - if meeting.end_time != nil
+            tr
+              td.width-100
+                | End time:
+              td = meeting.end_time.strftime("%d.%m.%Y")
+          - if meeting.place != '' && meeting.place != nil
+            tr
+              td.width-100 valign="top"
+                | Place:
+              td = truncate(meeting.place, :length => 90, :separator => ' ')
+          - if meeting.description != ''
+            tr
+              td.width-100 valign="top"
+                | Description:
+              td = truncate(meeting.description, :length => 90, :separator => ' ')
+          tr
+            td.width-100 valign="top"
+              | Autor:
+            td
+              dfn
+                = link_to meeting.user.email, user_show_path(meeting.user)
+      hr
+    = paginate @meetings
+    - if @meetings.empty?
+      h2.text-center
+        | All events
+      h3.text-center
+        br
+        | No event. You can  
+        dfn
+          = link_to "create", new_meeting_path
+        |  an event first
+  .small-2.columns
+    h4.text-center.font-weight-200
+      dfn
+        = link_to @user.email, user_show_path(@user)
+      | 's events
+    hr
+    h5.font-weight-200 = link_to "Month calendar", user_meetings_path('id': @user.id)
+    h5.font-weight-200 = link_to "Day calendar", day_calendar_user_meetings_path('id': @user.id)
+    h5.font-weight-300 = link_to "List", list_user_meetings_path('id': @user.id)

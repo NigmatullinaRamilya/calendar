@@ -64,7 +64,16 @@
           td
             | Events number:
           td.text-right
-            = @user.meetings.size 
+            = @user.meetings.size
+        - if @user.meetings.size != 0
+          tr
+            td
+            td.text-right
+              dfn
+                - if @user.id == current_user.id
+                  = link_to 'Show events', meetings_path
+                - else
+                  = link_to 'Show events', {controller: "user_meetings", action: "index", id: @user.id}
 .text-center
   br
   - if @user.id == current_user.id

@@ -27,6 +27,8 @@
           h6 = link_to current_user.email, user_show_path(current_user.id)
           ul.menu.vertical
             li.nav-bar-2
+              h6 = link_to "My profile", user_show_path(current_user.id)
+            li.nav-bar-3
               h6 = link_to "Edit profile", edit_user_registration_path
             li.nav-bar-3
               h6 = link_to "Sign out", destroy_user_session_path, method: :delete

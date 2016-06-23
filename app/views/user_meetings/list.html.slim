@@ -54,7 +54,9 @@
   .small-2.columns
     h4.text-center.font-weight-200
       dfn
-        = link_to @user.email, user_show_path(@user)
+        = link_to @user.first_name, user_show_path(@user)
+        |  
+        = link_to @user.second_name, user_show_path(@user)
       | 's events
     hr
     h5.font-weight-200 = link_to "Month calendar", user_meetings_path('id': @user.id)

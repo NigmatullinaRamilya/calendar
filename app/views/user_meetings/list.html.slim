@@ -44,13 +44,18 @@
     = paginate @meetings
     - if @meetings.empty?
       h2.text-center
-        | All events
+        dfn
+          = link_to @user.first_name, user_show_path(@user)
+          |  
+          = link_to @user.second_name, user_show_path(@user)
+        | 's events
       h3.text-center
         br
-        | No event. You can  
         dfn
-          = link_to "create", new_meeting_path
-        |  an event first
+          = link_to @user.first_name, user_show_path(@user)
+          |  
+          = link_to @user.second_name, user_show_path(@user)
+        |  has not created events yet
   .small-2.columns
     h4.text-center.font-weight-200
       dfn

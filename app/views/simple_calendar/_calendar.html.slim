@@ -1,16 +1,15 @@
-
-  table.white-borders
-    tr
-      td.text-left[valign="top"]
-        h3 = link_to "<", calendar.url_for_previous_view
-      td.text-center
-        h3
-          - date_range.each_slice(7) do |week|
-            - week.each do |day|
-              - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block)
-                - capture_haml do
-                  - block.call day, sorted_events.fetch(day, [])
-              - else
+table.white-borders
+  tr
+    td.text-left[valign="top"]
+      h3 = link_to "<", calendar.url_for_previous_view
+    td.text-center
+      h3
+        - date_range.each_slice(7) do |week|
+          - week.each do |day|
+            - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block)
+              - capture_haml do
                 - block.call day, sorted_events.fetch(day, [])
-      td.text-right[valign="top"]
-        h3 = link_to ">", calendar.url_for_next_view
+            - else
+              - block.call day, sorted_events.fetch(day, [])
+    td.text-right[valign="top"]
+      h3 = link_to ">", calendar.url_for_next_view

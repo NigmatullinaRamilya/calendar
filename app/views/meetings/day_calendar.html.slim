@@ -54,6 +54,9 @@
         - if meetings.empty?
           h5.text-center.font-weight-200
             | No events
+      h4.font-weight-200
+        i
+          = link_to "Create event on this day", new_meeting_path(start_date: date.strftime("%d.%m.%Y"))
   .small-2.columns
     h4.text-center.font-weight-200
       | My events (

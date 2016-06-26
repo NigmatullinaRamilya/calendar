@@ -25,9 +25,7 @@ class MeetingsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @meeting = @user.meetings.create(meeting_params)
-
+    @meeting = current_user.meetings.create(meeting_params)
     respond_to do |format|
       if @meeting.save
         format.html { redirect_to meeting_path(@meeting), notice: 'Meeting was successfully created.' }

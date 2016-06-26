@@ -7,6 +7,10 @@
 
     = calendar number_of_days: 1, events: @meetings do |date, meetings|
       = date.strftime("%d")
+      |  
+      = date.strftime("%B")
+      |  
+      = date.strftime("%Y")
       br
       h4.font-weight-200
         = date.strftime('%A')

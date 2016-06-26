@@ -7,6 +7,9 @@
 
     = calendar number_of_days: 1, events: @meetings do |date, meetings|
       = date.strftime("%d")
+      br
+      h4.font-weight-200
+        = date.strftime('%A')
       
       ul.text-black
         br
@@ -40,6 +43,10 @@
               td
                 dfn
                   = link_to meeting.user.email, user_show_path(meeting.user)
+          .text-center
+            = link_to "Show", meeting_path(meeting), class: "hollow button"
+          hr
+          br
         - if meetings.empty?
           h5.text-center.font-weight-200
             | No events

@@ -7,7 +7,7 @@ class Meeting < ActiveRecord::Base
     private
 
       def start_must_be_before_end_time
-      	if (end_time != nil)
+      	if (start_time != nil && end_time != nil)
           errors.add(:start_time, "must be before end time") unless
             start_time <= end_time
         end

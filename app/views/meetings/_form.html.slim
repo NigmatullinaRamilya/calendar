@@ -1,0 +1,47 @@
+.row
+  .small-6.small-offset-3.columns
+    = form_for(@meeting) do |f|
+      - if @meeting.errors.any?
+        #error_explanation
+          h2 = pluralize(@meeting.errors.count, "error")
+            | prohibited this meeting from being saved:
+          ul
+            - @meeting.errors.full_messages.each do |message|
+              li
+                = message
+
+      table.white-borders
+        div.field
+          tr
+            td.width-80
+              p = f.label :name
+            td
+              = f.text_field :name
+        div.field
+          tr
+            td.width-80
+              p = f.label :start_time
+            td
+              = f.text_field :start_time
+        div.field
+          tr
+            td.width-80
+              p = f.label :end_time
+            td
+              = f.text_field :end_time
+        div.field
+          tr
+            td.width-80
+              p = f.label :place
+            td
+              = f.text_field :place
+        div.field
+          tr
+            td.width-80
+              p = f.label :description
+            td
+              = f.text_area :description, size: "1x7"
+      div.actions.center
+        = f.submit "Save event", class: "button"
+        |  
+        = link_to 'Back', :back, class: "hollow button"

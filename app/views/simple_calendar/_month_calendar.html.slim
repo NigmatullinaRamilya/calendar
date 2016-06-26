@@ -10,12 +10,12 @@
           = start_date.year
       td.text-right[style="border-color: white"]
         h3 = link_to ">", calendar.url_for_next_view
-  table.table.table-striped
+  table.table-striped
     thead
       tr
         - date_range.slice(0, 7).each do |day|
-          th.center.font-weight-200
-            = I18n.t("date.abbr_day_names")[day.wday]
+          th.font-weight-200[style="text-align:center"]
+            = I18n.t("date.day_names")[day.wday]
     tbody
       - date_range.each_slice(7) do |week|
         tr

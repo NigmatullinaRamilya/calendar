@@ -20,10 +20,10 @@
             - for meeting in meetings
               - if meeting.user_id == current_user.id
                 li
-                  = link_to truncate(meeting.name, length: 9, :separator => ' '), {controller: "meetings", action: "show", id: meeting.id}
+                  = link_to truncate(meeting.name, length: 9, separator: ' '), {controller: "meetings", action: "show", id: meeting.id}
               - else
                 li
-                  = link_to truncate(meeting.name, :length => 9, :separator => ' '), all_meeting_path(meeting)
+                  = link_to truncate(meeting.name, length: 9, separator: ' '), all_meeting_path(meeting)
   .small-2.columns
     h4.text-center.font-weight-200
       | All events (

@@ -24,12 +24,12 @@
               tr
                 td.width-100 valign="top"
                   | Place:
-                td = truncate(meeting.place, :length => 90, :separator => ' ')
+                td = truncate(meeting.place, length: 90, separator: ' ')
             - if meeting.description != ''
               tr
                 td.width-100 valign="top"
                   | Description:
-                td = truncate(meeting.description, :length => 90, :separator => ' ')
+                td = truncate(meeting.description, length: 90, separator: ' ')
             tr
               td.width-100 valign="top"
                 | Autor:
@@ -54,12 +54,12 @@
             tr
               td.width-100 valign="top"
                 | Place:
-              td = truncate(meeting.place, :length => 90, :separator => ' ')
+              td = truncate(meeting.place, length: 90, separator: ' ')
           - if meeting.description != ''
             tr
               td.width-100 valign="top"
                 | Description:
-              td = truncate(meeting.description, :length => 90, :separator => ' ')
+              td = truncate(meeting.description, length: 90, separator: ' ')
           tr
             td.width-100 valign="top"
               | Autor:

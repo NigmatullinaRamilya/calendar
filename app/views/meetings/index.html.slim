@@ -16,7 +16,7 @@
           - if meetings != nil
             - for meeting in meetings
               li
-                = link_to truncate(meeting.name, :length => 9, :separator => ' '), meeting_path(meeting)
+                = link_to truncate(meeting.name, length: 9, separator: ' '), meeting_path(meeting)
   .small-2.columns
     h4.text-center.font-weight-200
       | My events (

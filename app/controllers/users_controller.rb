@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def update_password
     @user = User.find(current_user.id)
     if @user.update(user_params)
-      sign_in @user, :bypass => true
+      sign_in @user, bypass: true
       redirect_to root_path
     else
       render "edit"

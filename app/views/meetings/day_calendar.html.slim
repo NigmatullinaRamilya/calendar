@@ -46,12 +46,12 @@
               tr.white-borders
                 td.width-100 valign="top"
                   | Place:
-                td.text-left = truncate(meeting.place, :length => 90, :separator => ' ')
+                td.text-left = truncate(meeting.place, length: 90, separator: ' ')
             - if meeting.description != ''
               tr.white-borders
                 td.width-100 valign="top"
                   | Description:
-                td = truncate(meeting.description, :length => 90, :separator => ' ')
+                td = truncate(meeting.description, length: 90, separator: ' ')
             tr.white-borders
               td.width-100 valign="top"
                 | Autor:

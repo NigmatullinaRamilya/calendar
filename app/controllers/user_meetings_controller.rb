@@ -14,7 +14,7 @@ class UserMeetingsController < ApplicationController
 
   def list
     @user = User.find(params[:id])
-    @meetings = @user.meetings.order(start_time: :desc).page(params[:page]).per(5)
+    @meetings = @user.meetings.order(start_time: :desc).page(params[:page]).per(10)
   end
 
   private

@@ -81,3 +81,13 @@
         = f.submit "Update", class: "button"
         |  
         = link_to "Back", :back, class: "button hollow"
+
+    table.white-borders
+      tr
+        td.text-left
+          h5
+            | Cancel my account
+          p
+            | Once you delete an account, there is no going back. Please be certain.
+        td.text-right
+          = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button alert hollow"

@@ -6,15 +6,41 @@
       = notice
 
     - for meeting in @meetings
-      - if meeting.user_id == current_user.id
-        h3
-          .text-center
-            = link_to meeting.name, {controller: "meetings", action: "show", id: meeting.id}
-      - else
-        h3
-          .text-center
+      - if params[:today_events] == 'true'
+        - if meeting.start_time == Date.today
+          h3.text-center
             = link_to meeting.name, all_meeting_path(meeting)
-      table.white-borders
+          table.white-borders
+            tr
+              td.width-100
+                | Start time:
+              td = meeting.start_time.strftime("%d.%m.%Y")
+            - if meeting.end_time != nil
+              tr
+                td.width-100
+                  | End time:
+                td = meeting.end_time.strftime("%d.%m.%Y")
+            - if meeting.place != '' && meeting.place != nil
+              tr
+                td.width-100 valign="top"
+                  | Place:
+                td = truncate(meeting.place, :length => 90, :separator => ' ')
+            - if meeting.description != ''
+              tr
+                td.width-100 valign="top"
+                  | Description:
+                td = truncate(meeting.description, :length => 90, :separator => ' ')
+            tr
+              td.width-100 valign="top"
+                | Autor:
+              td
+                dfn
+                  = link_to meeting.user.email, user_show_path(meeting.user)
+          hr
+      - else
+        h3.text-center
+          = link_to meeting.name, all_meeting_path(meeting)
+        table.white-borders
           tr
             td.width-100
               | Start time:
@@ -40,7 +66,8 @@
             td
               dfn
                 = link_to meeting.user.email, user_show_path(meeting.user)
-      hr
+        hr
+
     = paginate @meetings
     - if @meetings.empty?
       h2.text-center
@@ -69,3 +96,9 @@
     h5.font-weight-200 = link_to "Month calendar", user_meetings_path('id': @user.id)
     h5.font-weight-200 = link_to "Day calendar", day_calendar_user_meetings_path('id': @user.id)
     h5.font-weight-300 = link_to "List", list_user_meetings_path('id': @user.id)
+    hr
+    h5.font-weight-200
+      - if params[:today_events] == 'true'
+        = link_to "All events", list_user_meetings_path('id': @user.id, today_events: false)
+      - else
+        = link_to "Events today", list_user_meetings_path('id': @user.id, today_events: true)

@@ -9,9 +9,9 @@
     = month_calendar events: @meetings do |date, meetings|
       .text-right
         - if date == Date.today
-          = link_to date.strftime("%d"), day_calendar_all_meetings_path(start_date: date.strftime("%Y-%m-%d")), {style: 'color: red'}
+          = link_to date.strftime("%d"), day_calendar_user_meetings_path(id: @user.id, start_date: date.strftime("%Y-%m-%d")), {style: 'color: red'}
         - else
-          = link_to date.strftime("%d"), day_calendar_all_meetings_path(start_date: date.strftime("%Y-%m-%d"))
+          = link_to date.strftime("%d"), day_calendar_user_meetings_path(id: @user.id, start_date: date.strftime("%Y-%m-%d"))
       
       ul
         .text-black

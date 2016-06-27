@@ -15,6 +15,7 @@ class MeetingsController < ApplicationController
 
   def list
     @meetings = current_user.meetings.order(start_time: :desc).page(params[:page]).per(5)
+    $exists = false
   end
 
   def new

@@ -92,11 +92,13 @@
       = @meetings.size
       | )
     hr
-    h5.font-weight-200 = link_to "Month calendar", all_meetings_path
-    h5.font-weight-200 = link_to "Day calendar", day_calendar_all_meetings_path
-    h5.font-weight-300 = link_to "List", list_all_meetings_path
-    hr
-    h5.font-weight-200
+    h5.font-weight-200 
+      = link_to "Month calendar", all_meetings_path
+      br
+      = link_to "Day calendar", day_calendar_all_meetings_path
+      .font-weight-300 
+        = link_to "List", list_all_meetings_path
+      hr
       - if params[:today_events] == 'true'
         = link_to "All events", list_all_meetings_path(today_events: false)
       - else

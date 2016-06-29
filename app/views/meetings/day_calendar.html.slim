@@ -74,8 +74,10 @@
       = @meetings.size
       | )
     hr
-    h5.font-weight-200 = link_to "Month calendar", meetings_path
-    h5.font-weight-300 = link_to "Day calendar", day_calendar_meetings_path
-    h5.font-weight-200 = link_to "List", list_meetings_path
-    hr
-    h5.font-weight-200 = link_to "Today", day_calendar_meetings_path
+    h5.font-weight-200 
+      = link_to "Month calendar", meetings_path
+      .font-weight-300 
+        = link_to "Day calendar", day_calendar_meetings_path
+      = link_to "List", list_meetings_path
+      hr
+      = link_to "Today", day_calendar_meetings_path

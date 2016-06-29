@@ -33,8 +33,11 @@
       = @meetings.size
       | )
     hr
-    h5.font-weight-300 = link_to "Month calendar", user_meetings_path('id': @user.id)
-    h5.font-weight-200 = link_to "Day calendar", day_calendar_user_meetings_path('id': @user.id)
-    h5.font-weight-200 = link_to "List", list_user_meetings_path('id': @user.id)
-    hr
-    h5.font-weight-200 = link_to "Today", user_meetings_path('id': @user.id)
+    h5.font-weight-200
+      .font-weight-300 
+        = link_to "Month calendar", user_meetings_path('id': @user.id)
+      = link_to "Day calendar", day_calendar_user_meetings_path('id': @user.id)
+      br
+      = link_to "List", list_user_meetings_path('id': @user.id)
+      hr
+      = link_to "Today", user_meetings_path('id': @user.id)

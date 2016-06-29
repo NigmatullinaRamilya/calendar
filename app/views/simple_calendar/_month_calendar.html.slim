@@ -1,20 +1,20 @@
 .simple-calendar
   table
     tr
-      td.text-left[style="border-color: white"]
+      td.text-left.white-borders
         h3 = link_to "<", calendar.url_for_previous_view
-      td.text-center[style="border-color: white"]
+      td.text-center.white-borders
         h3
           = I18n.t("date.month_names")[start_date.month]
           |  
           = start_date.year
-      td.text-right[style="border-color: white"]
+      td.text-right.white-borders
         h3 = link_to ">", calendar.url_for_next_view
   table.table-striped
     thead
       tr
         - date_range.slice(0, 7).each do |day|
-          th.font-weight-200[style="text-align:center"]
+          th.font-weight-200.text-center
             = I18n.t("date.day_names")[day.wday]
     tbody
       - date_range.each_slice(7) do |week|
